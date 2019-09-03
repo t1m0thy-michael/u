@@ -1,5 +1,5 @@
 import isFunction from './isFunction'
-import isRealNaN from './isFunction'
+import isRealNaN from './isRealNaN'
 
 /**
  * Removes all instances of deleteValue from arr. 
@@ -9,11 +9,10 @@ import isRealNaN from './isFunction'
  */
 const cleanArray = (
 	arr: any[],
-	deleteValue: any | null | undefined | { (a: any | null | undefined): boolean }): any[] => {
-	const NaN_FLAG = isRealNaN(deleteValue)
+	deleteValue: any): any[] => {
 	if (!isFunction(deleteValue)) {
 		return arr.filter((val) => {
-			if (NaN_FLAG && isRealNaN(val)) return false
+			if (isRealNaN(deleteValue) && isRealNaN(val)) return false
 			return val !== deleteValue
 		})
 	}

@@ -17,6 +17,7 @@ import isBool from './isBool'
 
 // Array functions
 import makeSureItsAnArray from './makeSureItsAnArray'
+import cleanArray from './cleanArray'
 import every from './every'
 import unique from './unique'
 import previous from './previous'
@@ -28,6 +29,7 @@ import get from './get'
 import set from './set'
 import decycle from './decycle'
 import undecycle from './undecycle'
+import clone from './clone'
 
 // async
 import forEach from './asyncForEach'
@@ -49,9 +51,9 @@ import curry from './curry'
 
 // handy
 import randomColour from './randomColour'
+import equal from './equal'
 
 export default {
-	// type checking
 	isArray,
 	isArrayLike,
 	isIterable,
@@ -67,8 +69,8 @@ export default {
 	isNull,
 	isRealNaN,
 	isBool,
-	// array
 	makeSureItsAnArray,
+	cleanArray,
 	every,
 	unique,
 	previous,
@@ -79,21 +81,18 @@ export default {
 		filter,
 		delay,
 	},
-	// object
 	sizeOf,
 	get,
 	set,
 	decycle,
 	undecycle,
-	// number
+	clone,
 	randomNumber,
 	randomInt,
-	// string
 	insert,
 	remove,
 	makeID,
-	// utility
 	curry,
-	// handy
 	randomColour,
+	equal,
 }

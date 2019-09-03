@@ -2,12 +2,14 @@
 	"compilerOptions": {
 		"allowJs": false,
 		"lib": ["es7", "dom"],
-		"module": "es6",
+		"module": "commonjs",
 		"noImplicitAny": true,
 		"strict": true,
 		"target": "es2017",
 		"moduleResolution": "Classic",
-		"sourceMap": true
+		"sourceMap": true,
+		"declaration": true,
+		"outDir": "typescript/main.d.ts"
 	},
 	"exclude": [
 		".vscode/**",

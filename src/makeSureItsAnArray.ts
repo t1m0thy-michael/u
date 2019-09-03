@@ -4,7 +4,7 @@ import isIterable from './isIterable'
 import isString from './isString'
 import isUndefined from './isUndefined'
 
-interface ImakeSureItsAnArray {
+export interface ImakeSureItsAnArray {
 	(arr: NodeListOf<Element>): Element[] // TS doesn't figure this out even though NodeLists are array like
 	<T>(arr: T[]): T[]
 	<T>(arr: T): T[]

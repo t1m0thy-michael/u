@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
 	entry: {
@@ -44,5 +44,5 @@ module.exports = {
 		removeAvailableModules: false,
 		removeEmptyChunks: false,
 		splitChunks: false,
-	}
+	},
 }
