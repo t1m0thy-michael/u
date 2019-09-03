@@ -9,7 +9,7 @@
 		"moduleResolution": "Classic",
 		"sourceMap": true,
 		"declaration": true,
-		"outDir": "typescript/main.d.ts"
+		"outDir": "types"
 	},
 	"exclude": [
 		".vscode/**",
