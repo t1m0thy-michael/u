@@ -3,7 +3,9 @@
   "version": "0.1.5",
   "description": "Utilities lib",
   "main": "index.js",
-  "types": "types/*.d.ts",
+  "typescript": {
+    "definition": "types/*.d.ts"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "test": "mocha --opts \"./mocha.opts\""
