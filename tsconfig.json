@@ -12,8 +12,9 @@
 		"outDir": "types"
 	},
 	"exclude": [
-		".vscode/**",
+		".vscode",
 		"node_modules",
-		"tests/**"
+		"tests",
+		"types"
 	]
 }

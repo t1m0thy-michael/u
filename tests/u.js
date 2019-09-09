@@ -418,7 +418,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only nulls from array', function () {
-				let result = u.cleanArray(testArray, (val) => (val === null))
+				let result = u.cleanArray((val) => (val === null), testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					'test1', 'test2',
@@ -428,7 +428,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only undefineds from array', function () {
-				let result = u.cleanArray(testArray, (val) => (val === undefined))
+				let result = u.cleanArray((val) => (val === undefined), testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					null, null,
@@ -438,7 +438,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only zeros from array', function () {
-				let result = u.cleanArray(testArray, (val) => (val === 0))
+				let result = u.cleanArray((val) => (val === 0), testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5,
 					null, null,
@@ -449,7 +449,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only exact strings from array', function () {
-				let result = u.cleanArray(testArray, (val) => (val === 'test1'))
+				let result = u.cleanArray((val) => (val === 'test1'), testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					null, null,
@@ -472,7 +472,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only nulls from array', function () {
-				let result = u.cleanArray(testArray, null)
+				let result = u.cleanArray(null, testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					'test1', 'test2',
@@ -482,7 +482,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only undefineds from array', function () {
-				let result = u.cleanArray(testArray, undefined)
+				let result = u.cleanArray(undefined, testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					null, null,
@@ -492,7 +492,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only zeros from array', function () {
-				let result = u.cleanArray(testArray, 0)
+				let result = u.cleanArray(0, testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5,
 					null, null,
@@ -503,7 +503,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all and only exact strings from array', function () {
-				let result = u.cleanArray(testArray, 'test1')
+				let result = u.cleanArray('test1', testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					null, null,
@@ -514,7 +514,7 @@ describe('u.js', function () {
 			})
 
 			it('Removes all instances of NaN from array', function () {
-				let result = u.cleanArray(testArray, NaN)
+				let result = u.cleanArray(NaN, testArray)
 				assert.deepStrictEqual(result, [
 					1, 2, 3, 4, 5, 0,
 					null, null,
@@ -866,7 +866,7 @@ describe('u.js', function () {
 			let test = [1, 2, 3, 4]
 			let result = []
 			let shouldEqual = [0, 2, 6, 12]
-			await u.async.forEach(test, (val, idx) => result.push(val * idx))
+			await u.async.forEach((val, idx) => result.push(val * idx), test)
 			assert.deepStrictEqual(result, shouldEqual)
 			assert.notStrictEqual(test, result)
 		})
@@ -879,13 +879,32 @@ describe('u.js', function () {
 		})
 
 		it('Returns promise', function () {
-			assert.ok(u.async.map([], () => {}) instanceof Promise)
+			assert.ok(u.async.map(() => {}, []) instanceof Promise)
 		})
 
 		it('Does loop right, passing val and idx', async function () {
 			let test = [1, 2, 3, 4]
 			let shouldEqual = [0, 2, 6, 12]
-			let result = await u.async.map(test, (val, idx) => val * idx)
+			let result = await u.async.map((val, idx) => val * idx, test)
+			assert.deepStrictEqual(result, shouldEqual)
+			assert.deepStrictEqual(result, shouldEqual)
+		})
+	})
+
+	describe('async.filter()', function () {
+
+		it('Is a function', function () {
+			assert.strictEqual(typeof u.async.filter, 'function', 'Is a function')
+		})
+
+		it('Returns promise', function () {
+			assert.ok(u.async.filter(() => {}, []) instanceof Promise)
+		})
+
+		it('Does loop right, passing val and idx', async function () {
+			let test = [1, 2, 3, 4]
+			let shouldEqual = [2, 4]
+			let result = await u.async.filter((val) => val % 2 === 0, test)
 			assert.deepStrictEqual(result, shouldEqual)
 			assert.deepStrictEqual(result, shouldEqual)
 		})
@@ -923,6 +942,16 @@ describe('u.js', function () {
 
 		it('Returns expected results - reuse second stage', function () {
 			let fn = u.curry((a, b, c) => a + b + c)
+			let a = fn(1)
+			let b = a(1)
+			let c = b(1)
+			assert.strictEqual(c, 3, 'First use returns 3')
+			assert.strictEqual(b(2), 4, 'Reuse stage 2')
+			assert.strictEqual(b(-1), 1, 'Reuse 2nd stage again')
+		})
+
+		it('Returns expected results - len argument and optional parameters', function () {
+			let fn = u.curry((a, b, c = 666) => a + b + c, 3)
 			let a = fn(1)
 			let b = a(1)
 			let c = b(1)

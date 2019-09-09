@@ -1,15 +1,27 @@
-import isArray from './isArray'
-import isArrayLike from './isArrayLike'
-import isIterable from './isIterable'
-import isString from './isString'
-import isUndefined from './isUndefined'
+import { isArray } from './is/isArray'
+import { isArrayLike } from './is/isArrayLike'
+import { isIterable } from './is/isIterable'
+import { isString } from './is/isString'
+import { isUndefined } from './is/isUndefined'
+
+const GENERATOR_TAGS = [
+	'[object AsyncGeneratorFunction]',
+	'[object GeneratorFunction]',
+]
 
 export interface ImakeSureItsAnArray {
 	(arr: NodeListOf<Element>): Element[] // TS doesn't figure this out even though NodeLists are array like
 	<T>(arr: T[]): T[]
 	<T>(arr: T): T[]
 }
-const makeSureItsAnArray: ImakeSureItsAnArray = (arr: any): any[] => {
+/**
+ * Will always return an array. Either the array passed as `arr` or a new array constructed from or containing the non-array value.
+ * Generator (including async) functions will always return an empty array unless `allowGenerator` is true.
+ * @param arr 
+ * @param allowGenerator 
+ */
+export const makeSureItsAnArray: ImakeSureItsAnArray = (arr: any, allowGenerator: boolean = false): any[] => {
+	if (!allowGenerator && GENERATOR_TAGS.includes(toString.apply(arr))) return []
 	if (!isArray(arr)) {
 		if (isUndefined(arr)) return []
 		if (!isString(arr) && (isArrayLike(arr) || isIterable(arr))) {
@@ -20,5 +32,3 @@ const makeSureItsAnArray: ImakeSureItsAnArray = (arr: any): any[] => {
 	}
 	return arr
 }
-
-export default makeSureItsAnArray

@@ -1,3 +1,0 @@
-const isFunction = (obj: any): obj is Function => (typeof (obj) === 'function')
-
-export default isFunction
