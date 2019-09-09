@@ -16,7 +16,10 @@ import str from './_str'
 
 import { makeSureItsAnArray } from './makeSureItsAnArray'
 
-export default {
+/**
+ * Utilities Lib
+ */
+const u = {
 	...arr,
 	...async,
 	...fn,
@@ -26,3 +29,5 @@ export default {
 	...str,
 	makeSureItsAnArray,
 }
+
+export default u

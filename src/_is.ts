@@ -38,7 +38,7 @@ import { isString } from './is/isString'
 import { isType } from './is/isType'
 import { isUndefined } from './is/isUndefined'
 
-export default {
+export const is = {
 	isArray,
 	isArrayLike,
 	isBetween,
@@ -59,3 +59,5 @@ export default {
 	isType,
 	isUndefined,
 }
+
+export default is

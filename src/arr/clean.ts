@@ -11,10 +11,10 @@ import { isRealNaN } from '../is/isRealNaN'
  * let cleanedArray = await u.clean(undefined, myArray) // [1, 2, 'text', null]
  * ```
  */
-export const clean = (
+export function clean (
 	deleteValue: ((val: any) => boolean) | any,
 	arr: any[]
-): any[] => {
+): any[] {
 
 	if (!isFunction(deleteValue)) {
 		return arr.filter((val) => {

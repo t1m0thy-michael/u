@@ -10,6 +10,9 @@ import { next } from './arr/next'
 import { previous } from './arr/previous'
 import { unique } from './arr/unique'
 
+/**
+ * Array functions.
+ */
 export const arr = {
 	clean,
 	every,
