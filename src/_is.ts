@@ -38,6 +38,10 @@ import { isString } from './is/isString'
 import { isType } from './is/isType'
 import { isUndefined } from './is/isUndefined'
 
+/**
+ * Type and value checking. 
+ * All Functions here return boolean.
+ */
 export const is = {
 	isArray,
 	isArrayLike,

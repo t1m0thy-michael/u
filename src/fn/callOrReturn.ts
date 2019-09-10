@@ -9,5 +9,8 @@ import { isFunction } from '../is/isFunction'
  * u.fn.callOrReturn(example1, 'Tim') // 'Hello Tim
  * u.fn.callOrReturn(example2, pointlessArg) // Whatever...
  */
-export const callOrReturn = (fn: any, ...args: any[]): any => 
-	isFunction(fn) ? fn(...args) : fn
+export function callOrReturn <T>(val: T): T
+export function callOrReturn<T>(fn: (...args: any) => T, ...args: any[]): T 
+export function callOrReturn <T>(fn: (...args: any) => T, ...args: any[]): T {
+	return isFunction(fn) ? fn(...args) : fn
+}

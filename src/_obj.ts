@@ -14,6 +14,9 @@ import { set } from './obj/set'
 import { sizeOf } from './obj/sizeOf'
 import { undecycle } from './obj/undecycle'
 
+/**
+ * Object utility functions.
+ */
 export const obj = {
 	clone,
 	decycle,

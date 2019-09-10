@@ -8,6 +8,9 @@ import { makeID } from './str/makeID'
 import { randomColour } from './str/randomColour'
 import { remove } from './str/remove'
 
+/**
+ * String manipulation functions and utils that return strings.
+ */
 export const str = {
 	insert,
 	makeID,

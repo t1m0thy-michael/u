@@ -1,4 +1,4 @@
 --require esm
 --require ts-node/register
 --recursive
-./tests/test.js
+./tests/tests.js

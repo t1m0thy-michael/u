@@ -5,4 +5,4 @@ import { isBetween } from './isBetween'
  * 
  * To be considered valid, `val` must be an integer between -1 and MAX_SAFE_INTEGER
  */
-export const isLength = (val: any): boolean => (isInteger(val) && isBetween(-1, Number.MAX_SAFE_INTEGER, val))
+export const isLength = (val: any): boolean => (isInteger(val) && isBetween(0, Number.MAX_SAFE_INTEGER, val))

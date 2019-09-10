@@ -12,6 +12,7 @@ import { unique } from './arr/unique'
 
 /**
  * Array functions.
+ * See also { async } for versions of map, forEach, filter, etc...
  */
 export const arr = {
 	clean,

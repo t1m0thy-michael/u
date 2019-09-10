@@ -6,6 +6,9 @@ import { callOrReturn } from './fn/callOrReturn'
 import { curry } from './fn/curry'
 import { maybeCall } from './fn/maybeCall'
 
+/**
+ * Functional programming stuff
+ */
 export const fn = {
 	callOrReturn,
 	curry,

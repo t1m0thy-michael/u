@@ -1,4 +1,11 @@
 /**
  * Returns true is `val` is a between `a` and `b` (inclusive)
  */
-export const isBetween = (a: number, b: number, val: any): boolean => (a <= val) && (val <= b)
+export function isBetween (
+	min: number,
+	max: number,
+	val: number
+): boolean 
+{
+	return (val >= min && val <= max)
+}
