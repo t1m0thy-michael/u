@@ -1,6 +1,6 @@
 {
   "name": "@t1m0thy_michael/u",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Utilities lib",
   "main": "index.js",
   "types": "types/index.d.ts",
