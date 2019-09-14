@@ -1,2 +1,5 @@
 src
+tests
+mocha.opts
+tsconfig.json
 webpack.config.js

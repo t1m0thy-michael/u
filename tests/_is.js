@@ -205,6 +205,14 @@ describe('_is', function () {
 			assert.strictEqual(typeof u_is.isMap, 'function', 'Is a function')
 		})
 
+		it('returns true', function () {
+			const myMap = new Map()
+			assert.strictEqual(u_is.isMap(myMap), true)
+		})
+
+		it('returns false', function () {
+			assert.strictEqual(u_is.isMap([]), false)
+		})
 	})
 
 	describe('isNull())', function () {
@@ -309,6 +317,14 @@ describe('_is', function () {
 
 		it('Is a function', function () {
 			assert.strictEqual(typeof u_is.isRealNaN, 'function', 'Is a function')
+		})
+
+		it('returns true', function () {
+			assert.strictEqual(u_is.isRealNaN(NaN), true)
+		})
+
+		it('returns false', function () {
+			assert.strictEqual(u_is.isRealNaN('somerandomnotanumberthing'), false)
 		})
 
 	})

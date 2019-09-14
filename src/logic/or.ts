@@ -1,14 +1,14 @@
 import { callOrReturn } from '../fn/callOrReturn'
 
-/**
- * Accepts `arr` array of values/function. 
- * 
- * Returns true if one or more of them strictly equals `true`
- */
-export function or(arr: (boolean | (() => boolean))[]): boolean {
+export interface Ior {
+	/** Accepts n values and/or functions as arguments. Returns true if one or more of them strictly equals `true` */
+	(...args: (any | ((i?: number) => any))[]): boolean
+}
+
+export const or: Ior = (...args) => {
 	let t = 0
-	for (let i = 0; i < arr.length; i++) {
-		if (callOrReturn(arr[i]) === true) {
+	for (let i = 0; i < args.length; i++) {
+		if (callOrReturn(args[i])) {
 			return true
 		}
 	}

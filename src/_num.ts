@@ -1,8 +1,10 @@
 export * from './num/clamp'
+export * from './num/scale'
 export * from './num/randomInt'
 export * from './num/randomNumber'
 
 import { clamp } from './num/clamp'
+import { scale } from './num/scale'
 import { randomInt } from './num/randomInt'
 import { randomNumber } from './num/randomNumber'
 
@@ -11,6 +13,7 @@ import { randomNumber } from './num/randomNumber'
  */
 export const num = {
 	clamp,
+	scale,
 	randomInt,
 	randomNumber,
 }
