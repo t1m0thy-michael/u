@@ -6,6 +6,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "build": "webpack --mode production",
+    "lint": "eslint \"./src/**\"",
     "test": "mocha --opts \"./mocha.opts\""
   },
   "repository": {
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/t1m0thy-michael/u#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "chai": "^4.2.0",
     "eslint": "^5.10.0",
     "eslint-import-resolver-webpack": "^0.10.1",

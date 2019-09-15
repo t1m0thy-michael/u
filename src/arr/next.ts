@@ -7,14 +7,14 @@ export const next = (
 	idx: number,
 	filter = (val: any) => !!val
 
-	): { val: any, idx: Number } => {
+): { val: any, idx: Number } => {
 
 	if (isFunction(filter)) {
-		for (let i = idx + 1; i >= 0; i++) {
+		for (let i = idx + 1; i < arr.length; i++) {
 			if (filter(arr[i])) return { val: arr[i], idx: i }
 		}
 	} else {
-		for (let i = idx + 1; i >= 0; i++) {
+		for (let i = idx + 1; i < arr.length; i++) {
 			if (arr[i] === filter) return { val: arr[i], idx: i }
 		}
 	}

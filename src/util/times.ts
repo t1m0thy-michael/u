@@ -12,5 +12,3 @@ export function times<T>(val: (...args: any) => T | T, len: number): T[] {
 	}
 	return out
 }
-
-let test = callOrReturn('str')

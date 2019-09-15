@@ -6,7 +6,6 @@ export interface Ior {
 }
 
 export const or: Ior = (...args) => {
-	let t = 0
 	for (let i = 0; i < args.length; i++) {
 		if (callOrReturn(args[i])) {
 			return true
