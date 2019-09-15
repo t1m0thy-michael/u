@@ -9,14 +9,14 @@ script:
   - npm run test
   - npm run build
 after_success:
-  - npm version patch
+  - npm version patch -m "Bumping to %s"
 #after_failure:
 #after_script:
 #before_deploy:
 deploy:
   skip_cleanup: true
-  script: npm
-  - npm version patch
+  provider: script
+  script: "npm publish"
   on:
     branch: master
   api_key:
