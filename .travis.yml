@@ -1,20 +1,26 @@
 sudo: false
 language: node_js
 node_js:
-- node
+  - node
 install:
-- npm ci
+  - npm ci
 script:
-- npm lint
-- npm test
+  - npm lint
+  - npm test
+  - npm run build
 after_success:
-- npm version patch
+  - npm version patch
+#after_failure:
+#after_script:
+#before_deploy:
 deploy:
   skip_cleanup: true
   script: npm
+  - npm version patch
   on:
     branch: master
   api_key:
     secure: tQHz9sxdhJEduSyoYwaroN+IFfr0D5DvSadaFEgk0NccHyQzeLfAoqsw+CgadBbIYI82E5bvJsM58huoFc9Bwf1PtFNu4C5imZWPgdmCUmrqMcE1kqGl1swJ+urgBlgM57PLskg2AEHgiv1hsG5aIjieN/88hTlZBxfO8/A4wGKba3+zmG/uHscAqC4v4Q9Mmmgg6zsnEzdQBdBdcV/otWoRI473QE6R1F2q8DBfonkYh0nrdGL3KNm/YhiH6PEMZfznKoBKd07xQ5rpxDHpMox3L3SQSKucvgfXd/Nj9u4AG8r7hpFM6AP6NxlRqCdefRixfgfScpni+k7LJMk9lgEjpmsUjtdp13Qsx8OU+VD9QyvSa3/x3cmHekTihtH2DMT6T34eZb14knb9gmjB54QQzft79XqpuAlt1/ZEmvmWKkpcDAVM1XAstppA04ttIt/G2LgT5z79FUuwqtPsLY67LalG4cxJ3j6KpiMkFYHzUzWbXB4kOZ9E+ru7s8E4tIkEpyhvsrIV2Sd7MsQ+ugmTorXA/dDzI2LIluiioE4B/IV5wjfdctA+15QRV71LAaJVJquBq5AvZgsUvzg9F5AbrN86OGK9ChPMSnHylDIz4wiyp3IFeN9AVSnnBhqpuztO0ni7N+rFHuAKAI12kOO6B17TnfyqqQ0uAWCbieU=
+#after_deploy:
 notifications:
   email: false
