@@ -1,6 +1,8 @@
-import { makeSureItsAnArray } from '../util/makeSureItsAnArray'
-
-/**
- * Returns a new array containing one instance of each value from `arr1` ad `arr2`.
- */
-export const unique = (arr1: any[], arr2: any[]): any[] => Array.from(new Set([...makeSureItsAnArray(arr1), ...makeSureItsAnArray(arr2)]))
+export interface Iunique {
+	/** Returns a new array containing one instance of each value from `arr1` ad `arr2`. */
+	<T>(...args: T[][]): T[]
+}
+export const unique:Iunique = (...args) => {
+	const out: any[] = []
+	return Array.from(new Set(out.concat(...args)))
+}
