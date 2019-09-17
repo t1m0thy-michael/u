@@ -1,3 +1,5 @@
-index.js
+.nyc_output
+/index.js
+coverage
 node_modules
 types

@@ -18,8 +18,6 @@ import obj from './_obj'
 import str from './_str'
 import util from './_util'
 
-import { makeSureItsAnArray } from './makeSureItsAnArray'
-
 /**
  * Utilities Lib
  */
@@ -33,7 +31,6 @@ const u = {
 	...obj,
 	...str,
 	...util,
-	makeSureItsAnArray,
 }
 
 export default u

@@ -1,4 +1,4 @@
-import { makeSureItsAnArray } from '../makeSureItsAnArray'
+import { makeSureItsAnArray } from '../util/makeSureItsAnArray'
 
 /**
  * Calls `fn` on each element of `arr`.

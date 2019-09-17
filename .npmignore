@@ -1,5 +1,8 @@
+.eslint*
+.travis.yml
+mocha.opts
+scripts
 src
 tests
-mocha.opts
 tsconfig.json
 webpack.config.js

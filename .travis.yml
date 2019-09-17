@@ -2,22 +2,24 @@ sudo: false
 language: node_js
 node_js:
   - node
+branches:
+  only:
+  - master
 install:
   - npm ci
 script:
   - npm run lint
-  - npm run test
+  - npm run coverage
   - npm run build
 after_success:
-  - npm version patch -m "Bumping to %s"
+  - npm version patch
 deploy:
   skip_cleanup: true
   provider: npm
   email: $NPM_USER
-  api_key:
-    secure: $NPM_TOKEN
+  api_key: $NPM_TOKEN
   on:
-    repo: t1m0thy-michael/u
+    repo: t1m0thy-michael/util
     branch: master
 notifications:
   email: false

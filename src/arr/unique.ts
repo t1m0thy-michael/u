@@ -1,4 +1,4 @@
-import { makeSureItsAnArray } from '../makeSureItsAnArray'
+import { makeSureItsAnArray } from '../util/makeSureItsAnArray'
 
 /**
  * Returns a new array containing one instance of each value from `arr1` ad `arr2`.

@@ -1,39 +1,48 @@
 {
-  "name": "@t1m0thy_michael/u",
-  "version": "0.1.9",
-  "description": "Utilities lib",
+  "name": "tim_util",
+  "version": "0.1.1",
+  "description": "u: [utils] Utilities lib",
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
     "build": "webpack --mode production",
     "lint": "eslint \"./src/**\"",
-    "test": "mocha --opts \"./mocha.opts\""
+    "test": "cross-env TS_NODE_FILES=true _mocha --require ts-node/register ./src/**/*.test.ts",
+    "coverage": "nyc npm test && nyc report --reporter=text && nyc report --reporter=text-lcov | coveralls",
+    "coverage:html": "nyc npm test && nyc report --reporter=text && nyc report --reporter=lcov"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/t1m0thy-michael/u.git"
+    "url": "git://github.com/t1m0thy-michael/util.git"
   },
   "author": "Timothy Michael",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/t1m0thy-michael/u/issues"
+    "url": "https://github.com/t1m0thy-michael/util/issues"
   },
-  "homepage": "https://github.com/t1m0thy-michael/u#readme",
+  "homepage": "https://github.com/t1m0thy-michael/util#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.2.0",
-    "@typescript-eslint/parser": "^2.2.0",
+    "@types/chai": "^4.2.2",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "chai": "^4.2.0",
-    "eslint": "^5.10.0",
-    "eslint-import-resolver-webpack": "^0.10.1",
+    "coveralls": "^3.0.6",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.4.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
     "esm": "^3.0.84",
-    "mocha": "^5.2.0",
+    "mocha": "^6.2.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "ts-loader": "^5.4.3",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.4",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.1.2"
-  }
+    "nyc": "^14.1.1",
+    "ts-loader": "^6.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {}
 }
