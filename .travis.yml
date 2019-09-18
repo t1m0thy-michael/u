@@ -20,7 +20,7 @@ jobs:
       script: npm run build
 
     - stage: npm release
-      if: branch IN (master) AND tag IS present
+      if: tag IS present
       deploy:
         skip_cleanup: true
         provider: npm
