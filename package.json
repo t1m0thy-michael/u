@@ -1,6 +1,6 @@
 {
   "name": "tim_util",
-  "version": "0.1.3",
+  "version": "0.1.1",
   "description": "u: [utils] Utilities lib",
   "main": "index.js",
   "types": "types/index.d.ts",
