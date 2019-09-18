@@ -1,25 +1,32 @@
-sudo: false
 language: node_js
 node_js:
   - node
-branches:
-  only:
-  - master
-install:
-  - npm ci
-script:
-  - npm run lint
-  - npm run coverage
-  - npm run build
-after_success:
-  - npm version patch
-deploy:
-  skip_cleanup: true
-  provider: npm
-  email: $NPM_USER
-  api_key: $NPM_TOKEN
-  on:
-    repo: t1m0thy-michael/util
-    branch: master
+
+jobs:
+  include:
+
+    - stage: lint
+      script: npm run lint
+
+    - stage: test
+      script: npm run test
+
+    - stage: coverage
+      if: branch IN (master)
+      script: npm run coverage
+
+    - stage: build
+      if: branch IN (master)
+      script: npm run build
+
+    - stage: npm release
+      if: branch IN (master) AND tag IS present
+      deploy:
+        skip_cleanup: true
+        provider: npm
+        email: $NPM_USER
+        api_key: $NPM_TOKEN
+        
 notifications:
   email: false
+
