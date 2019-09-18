@@ -18,9 +18,9 @@ describe('makeSureItsAnArray()', function () {
 
 		var myIterable = {
 			*[Symbol.iterator]() {
-				yield 1;
-				yield 2;
-				yield 3;
+				yield 1
+				yield 2
+				yield 3
 			}
 		}
 		assert.deepEqual(makeSureItsAnArray(myIterable), [1, 2, 3])
