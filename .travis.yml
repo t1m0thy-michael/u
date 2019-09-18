@@ -32,19 +32,22 @@ jobs:
       script: npm run lint
 
     - stage: test
-      if: branch NOT IN (travis_testing, master)
+      node_js:
+        - node
+        - 10
+        - 8
       script: npm run test
 
-    - stage: test (coverage)
-      if: branch IN (travis_testing)
+    - stage: coverage
+      if: branch IN (master)
       script: npm run coverage
 
     - stage: build
-      if: branch IN (travis_testing)
+      if: branch IN (master)
       script: npm run build
 
     - stage: npm release
-      if: branch = master
+      if: branch IN (master) AND tag IS present
       deploy:
         skip_cleanup: true
         provider: npm
