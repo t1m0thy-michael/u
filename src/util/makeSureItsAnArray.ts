@@ -4,18 +4,14 @@ import { isIterable } from '../is/isIterable'
 import { isString } from '../is/isString'
 import { isUndefined } from '../is/isUndefined'
 
-const GENERATOR_TAGS = [
-	'[object AsyncGeneratorFunction]',
-	'[object GeneratorFunction]',
-]
-
 export interface ImakeSureItsAnArray {
 	/**
-	 * Will always return an array. Either the array passed as `arr` or a new array constructed from or containing the non-array value.
-	 * Generator (including async generators) functions will always return an empty array unless `allowGenerator` is true.
+	 * Will always return an array. 
+	 * 
+	 * Either the array passed as `arr` or a new array constructed from or containing the non-array value passed as `arr`.
 	 */
-	<T>(arr: (T | T[])): T[]
-	<T, U extends (Iterable<T>)>(arr: U): T[]
+	<T extends Element, U extends (NodeListOf<T>|HTMLCollectionOf<T>)> (arr: U): T[]
+	<T, U extends (Iterator<T>)> (arr: U | (T | T[])): T[]
 }
 export const makeSureItsAnArray:ImakeSureItsAnArray = (arr:any) => {
 	if (!isArray(arr)) {
