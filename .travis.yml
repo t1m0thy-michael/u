@@ -28,19 +28,23 @@ jobs:
 
   include:
 
-    - stage: lint and test
-      script: 
-        - npm run lint
-        - npm run coverage
+    - stage: lint
+      script: npm run lint
+
+    - stage: test
+      if: branch NOT IN (travis_testing, master)
+      script: npm run test
+
+    - stage: test (coverage)
+      if: branch IN (travis_testing)
+      script: npm run coverage
 
     - stage: build
-      script: 
-        - npm run build
+      if: branch IN (travis_testing)
+      script: npm run build
 
     - stage: npm release
       if: branch = master
-      script: 
-        - npm version patch
       deploy:
         skip_cleanup: true
         provider: npm
