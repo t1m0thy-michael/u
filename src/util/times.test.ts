@@ -1,14 +1,25 @@
-import { callOrReturn } from '../fn/callOrReturn'
+const chai = require('chai')
+const assert = chai.assert
 
-/**
- * Creates an array of length `len` containing `val` at each index.
- * 
- * If `val` is a function the new array will contain its return values. The function will get the index as it's only argument
- */
-export function times<T>(val: (...args: any) => T | T, len: number): T[] {
-	const out = []
-	for (let i = 0; i < len; i++) {
-		out[i] = callOrReturn(val, i)
-	}
-	return out
-}
+import { times } from './times'
+
+describe('times()', function () {
+
+	it('Is a function', function () {
+		assert.strictEqual(typeof times, 'function', 'Is a function')
+	})
+
+	it('Returns correct arrays when passed scalar', function () {
+		assert.deepEqual(times(1, 3), [1, 1, 1])
+		assert.deepEqual(times('str', 3), ['str', 'str', 'str'])
+	})
+
+	it('Returns correct arrays when passed function', function () {
+		assert.deepEqual(times((idx:number) => idx * 2, 3), [0, 2, 4])
+	})
+
+	it('Returns array of specified length', function () {
+		assert.deepEqual(times(1, 30).length, 30)
+		assert.deepEqual(times(1, 13).length, 13)
+	})
+})

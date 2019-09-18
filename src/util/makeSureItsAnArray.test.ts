@@ -25,6 +25,4 @@ describe('makeSureItsAnArray()', function () {
 		}
 		assert.deepEqual(makeSureItsAnArray(myIterable), [1, 2, 3])
 	})
-
-
 })
