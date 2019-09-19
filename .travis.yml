@@ -12,15 +12,15 @@ jobs:
       script: npm run test
 
     - stage: coverage
-      if: branch IN (master)
+      if: (tag =~ ^v) OR (branch = master)
       script: npm run coverage
 
     - stage: build
-      if: branch IN (master)
+      if: (tag =~ ^v) OR (branch = master)
       script: npm run build
 
     - stage: npm release
-      if: tag IS present
+      if: (tag =~ ^v) OR (branch = master)
       deploy:
         skip_cleanup: true
         provider: npm
@@ -29,4 +29,3 @@ jobs:
         
 notifications:
   email: false
-
