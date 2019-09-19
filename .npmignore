@@ -1,7 +1,8 @@
+.coveralls.yml
 .eslint*
+.gitattributes
+.nycrc
 .travis.yml
-mocha.opts
-scripts
 src
 tests
 tsconfig.json
