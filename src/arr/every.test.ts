@@ -14,9 +14,9 @@ describe('every()', function () {
 		assert.ok(result, 'Returns true when test function returns true for every element')
 	})
 
-	it('Returns false when condition function returns true for every element', function () {
+	it('Returns false when test function returns false for an element', function () {
 		let result = every((val:number) => val !== 2, [1, 2, 3, 4, 5])
-		assert.ok(!result, 'Returns false when test function returns false for an element')
+		assert.ok(!result)
 	})
 
 })

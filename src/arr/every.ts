@@ -17,4 +17,12 @@ export interface Ievery{
 	(fn: (...args: any[]) => any, arr: any): boolean
 }
 
-export const every: Ievery = (fn, arr) => makeSureItsAnArray(arr).every(fn)
+export const every: Ievery = (fn, arr) => {
+	arr = makeSureItsAnArray(arr)
+	for (let i = 0; i < arr.length; i++) {
+		if (!fn(arr[i])){
+			return false
+		}
+	}
+	return true
+}
