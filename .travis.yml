@@ -19,14 +19,13 @@ jobs:
       script: npm run build
 
     - stage: npm release
+      script: echo "Deploy MASTER to npm"
+      if: branch = master
       deploy:
         skip_cleanup: true
         provider: npm
         email: $NPM_USER
         api_key: $NPM_TOKEN
-          on:
-            repo: t1m0thy-michael/util
-            branch: master
-                
+          
 notifications:
   email: false
