@@ -13,5 +13,6 @@ export interface ImaybeCall {
 	 */
 	(fn: any, ...args: any[]): any
 }
+
 export const maybeCall:ImaybeCall = (fn, ...args) => 
 	isFunction(fn) ? fn(...args) : false

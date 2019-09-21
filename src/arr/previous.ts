@@ -1,9 +1,7 @@
 import { isFunction } from '../is/isFunction'
 
 export interface Iprevious {
-	/**
-	 * Returns value and index of the next item in `arr` from `idx` for which `filter` returns true
-	 */
+	/** Returns value and index of the next item in `arr` from `idx` for which `filter` returns true */
 	(
 		arr: any[],
 		idx: number,
