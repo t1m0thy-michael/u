@@ -3,7 +3,7 @@ import { isType } from './isType'
  * Returns `true` if `val` is an instance of, OR is typeof `type`. This means that objects
  * and primitives can be checked in the same way.
  * 
- * `type` should be passed as a string. Will not throw if the `type` passed does not exist.
+ * `type` can be passed as a string. Will return `false` if the `type` passed does not exist.
  * 
  * ```js 
  * (u.isInstanceOf('string', myVar)) // could be true,

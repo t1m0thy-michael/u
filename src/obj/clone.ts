@@ -1,5 +1,10 @@
 import { decycle } from './decycle'
 import { undecycle } from './undecycle'
+
+export interface Iclone {
+	(obj: object): object
+}
+
 // TODO: proper implementation of deep clone. This is crap.
 
 /**
@@ -7,4 +12,4 @@ import { undecycle } from './undecycle'
  * 
  * No it doesn't... crap implementation using JSON.parse(JSON.string.....
  */
-export const clone = (obj: object): object => undecycle(JSON.parse(JSON.stringify(decycle(obj))))
+export const clone:Iclone = (obj) => undecycle(JSON.parse(JSON.stringify(decycle(obj))))

@@ -1,7 +1,10 @@
+export interface Idelay {
+	(seconds: number): Promise<true>
+}
 /**
  * Returns a promise which will resolve in `seconds`.
  * 
- * Limited to noraml setTimeout / backgrounding issues.
+ * Limited to normal setTimeout / backgrounding issues.
  * 
  * ```js
  * //do some stuff...
@@ -9,5 +12,5 @@
  * // 2 seconds later do some more stuff...
  * ``` 
  */
-export const delay = async (seconds: number): Promise<any> =>
-	new Promise(resolve => setTimeout(resolve, seconds * 1000))
+export const delay:Idelay = async (seconds) =>
+	new Promise(resolve => setTimeout(() => resolve(true), seconds * 1000))
