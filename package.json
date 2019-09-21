@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "lint": "eslint \"./src/**\"",
-    "test": "cross-env TS_NODE_FILES=true _mocha --require ts-node/register ./src/**/*.test.ts",
+    "test": "cross-env TS_NODE_FILES=true mocha --require ts-node/register ./src/**/*.test.ts",
     "coverage": "nyc npm test && nyc report --reporter=text && nyc report --reporter=text-lcov | coveralls",
     "coverage:html": "nyc npm test && nyc report --reporter=text && nyc report --reporter=lcov"
   },

@@ -12,20 +12,21 @@ jobs:
       script: npm run test
 
     - stage: coverage
-      if: (tag =~ ^v) OR (branch = master)
+      if: branch = master
       script: npm run coverage
 
     - stage: build
-      if: (tag =~ ^v) OR (branch = master)
       script: npm run build
 
     - stage: npm release
-      if: (tag =~ ^v) OR (branch = master)
       deploy:
         skip_cleanup: true
         provider: npm
         email: $NPM_USER
         api_key: $NPM_TOKEN
-        
+          on:
+            repo: t1m0thy-michael/u
+            branch: master
+                
 notifications:
   email: false

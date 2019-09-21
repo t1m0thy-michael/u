@@ -2,7 +2,9 @@
 .eslint*
 .gitattributes
 .nycrc
+.nyc_output
 .travis.yml
+coverage
 src
 tests
 tsconfig.json

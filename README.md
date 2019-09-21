@@ -8,9 +8,8 @@
 ![GitHub](https://img.shields.io/github/license/t1m0thy-michael/util?style=for-the-badge&color=informational) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/tim_util?style=for-the-badge&color=informational)
 
-Work in progress
+Written to be environment agnostic. This will work in Browsers and on NodeJS.
 
-## WARNING
-Cross browser/leagacy compatibility has been give ZERO thought... so far, this WILL improve! Use and testing of current version thus far has been confined to Chromium 70+ and Node 11+
+Docs coming very soon... 
 
-Docs coming very soon... after I've done migrating tests over to this new repo.
+
