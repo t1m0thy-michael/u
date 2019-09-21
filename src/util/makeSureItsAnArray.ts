@@ -11,6 +11,7 @@ export interface ImakeSureItsAnArray {
 	 * Either the array passed as `arr` or a new array constructed from or containing the non-array value passed as `arr`.
 	 */
 	<T extends Element, U extends (NodeListOf<T>|HTMLCollectionOf<T>)> (arr: U): T[]
+	(arr: (string | string[])): string[]
 	<T, U extends (Iterator<T> | Iterable<T>)>(arr: U): T[]
 	<T>(arr: (T | T[])): T[]
 }
