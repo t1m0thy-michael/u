@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - node
+install:
+  - npm ci
+script:
+  - npm run lint
+  - npm run test
+  - npm run build
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: $NPM_USER
+  api_key: $NPM_TOKEN
+  on:
+    repo: t1m0thy-michael/util
+    branch: master
+notifications:
+  email: false
