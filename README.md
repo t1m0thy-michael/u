@@ -1,35 +1,35 @@
-![Travis (.com)](https://img.shields.io/travis/com/t1m0thy-michael/util?style=for-the-badge) 
-![Coveralls github](https://img.shields.io/coveralls/github/t1m0thy-michael/util?style=for-the-badge) 
-![GitHub last commit](https://img.shields.io/github/last-commit/t1m0thy-michael/util?style=for-the-badge) 
-![npm](https://img.shields.io/npm/v/tim_util?style=for-the-badge&color=informational) 
-![GitHub](https://img.shields.io/github/license/t1m0thy-michael/util?style=for-the-badge&color=informational) 
-![npm bundle size](https://img.shields.io/bundlephobia/min/tim_util?style=for-the-badge&color=informational)
+![Travis (.com)](https://img.shields.io/travis/com/t1m0thy-michael/u?style=for-the-badge) 
+![Coveralls github](https://img.shields.io/coveralls/github/t1m0thy-michael/u?style=for-the-badge) 
+![GitHub last commit](https://img.shields.io/github/last-commit/t1m0thy-michael/u?style=for-the-badge) 
+![npm](https://img.shields.io/npm/v/@t1m0thy_michael/u?style=for-the-badge&color=informational) 
+![GitHub](https://img.shields.io/github/license/t1m0thy-michael/u?style=for-the-badge&color=informational) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/@t1m0thy_michael/u?style=for-the-badge&color=informational)
 
 # Util
 
-Util is a lightweight libary of simple, commonly useful utility function. Written in typescript 
+u is a lightweight libary of simple, commonly useful utility function. Written in typescript 
 
 ## Installation
 
 ```
-npm i tim_util
+npm i @t1m0thy_michael/u
 ```
 
 ## Usage
 Functions are organised so that you can pick and choose as much...
 ```js
-import u from 'tim_util' // everything
+import u from '@t1m0thy_michael/u' // everything
 ```
 or as little as you need...
 ```js
-import { num } from 'tim_util' // number/math functions only
+import { num } from '@t1m0thy_michael/u' // number/math functions only
 ```
 keeping your project small...
 ```js
-import { makeSureItsAnArray } from 'tim_util' // just the function you need
+import { makeSureItsAnArray } from '@t1m0thy_michael/u' // just the function you need
 ```
 
-Functions are all available at root level when importing all of tim_util.
+Functions are all available at root level when ```import u from @t1m0thy_michael/u```.
 
 ## arr
 * clean 

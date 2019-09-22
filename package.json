@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/t1m0thy-michael/util.git"
+    "url": "git://github.com/t1m0thy-michael/u.git"
   },
   "author": "Timothy Michael",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/t1m0thy-michael/util/issues"
+    "url": "https://github.com/t1m0thy-michael/u/issues"
   },
-  "homepage": "https://github.com/t1m0thy-michael/util#readme",
+  "homepage": "https://github.com/t1m0thy-michael/u#readme",
   "devDependencies": {
     "@types/chai": "^4.2.2",
     "@types/mocha": "^5.2.7",
