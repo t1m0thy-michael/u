@@ -12,7 +12,7 @@ export const makeID = (
 	suffix = '',
 	possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_'
 ) => {
-	for (let i = 0; i < length - (suffix.length + 1); i++) {
+	for (let i = 0; i <= length - (prefix.length + suffix.length); i++) {
 		prefix += possible.charAt(Math.floor(Math.random() * possible.length))
 	}
 	return prefix + suffix
