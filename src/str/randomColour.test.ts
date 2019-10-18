@@ -13,7 +13,7 @@ describe('randomColour()', function () {
 		assert.ok(/^#[A-F0-9]{6}/.test(randomColour()))
 	})
 
-	it('Builds a string from prefix+given chars+suffix or given length', function () {
+	it('Builds a string from prefix+given chars+suffix of given length', function () {
 		assert.notEqual(randomColour(), randomColour())
 		assert.notEqual(randomColour(), randomColour())
 		assert.notEqual(randomColour(), randomColour())
