@@ -9,7 +9,7 @@ describe('makeID()', function () {
 		assert.strictEqual(typeof makeID, 'function', 'Is a function')
 	})
 
-	it('Builds a string from prefix+given chars+suffix or given length', function () {
+	it('Builds a string from prefix+given chars+suffix of given length', function () {
 		const result = makeID(10, '_', '#', 'A')
 		assert.strictEqual(result, '_AAAAAAAA#')
 	})
@@ -18,7 +18,6 @@ describe('makeID()', function () {
 		const result1 = makeID()
 		const result2 = makeID()
 		assert.notEqual(result1, result2)
-		assert.notEqual(result1.length, 8)
+		assert.equal(result1.length, 8)
 	})
 })
-
