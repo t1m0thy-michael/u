@@ -16,7 +16,7 @@
 		".vscode",
 		"coverage",
 		"node_modules",
-		"tests",
+		"**/*.test.ts",
 		"types"
 	]
 }
