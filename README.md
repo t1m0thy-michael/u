@@ -43,6 +43,7 @@ Functions are all available at root level when ```import u from @t1m0thy_michael
 * forEach
 * map
 ## fn
+* cache
 * callOrReturn
 * curry
 * maybeCall
