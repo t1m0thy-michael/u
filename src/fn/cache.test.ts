@@ -12,7 +12,7 @@ describe('cache()', function () {
 	it('Retuns new function', function () {
 		const testFn = (a: number, b: number, c: number): number => a + b + c
 		const nufn = cache(testFn)
-		assert.notStrictEqual(cache(testFn), testFn)
+		assert.notStrictEqual(nufn, testFn)
 	})
 
 	it('Retuns new function with additional methods', function () {
