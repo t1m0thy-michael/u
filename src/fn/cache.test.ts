@@ -54,10 +54,6 @@ describe('cache()', function () {
 		assert.strictEqual(testFn(obj, 1, null, 2), nufn(obj, 1, null, 2))
 	})
 
-
-
-
-
 	it('Returns a promise when caching an async function', async function () {
 		const testFn = async (a: number, b: number, c: number = 0): Promise<number> => a + b + c
 		const nufn = cache(testFn)

@@ -1,3 +1,7 @@
+/* eslint require-atomic-updates: off */
+// above rule :off due to line in nufnAsync:
+// if (!(key in resultCache)) resultCache[key] = await fn(...args)
+// This is not a race condition that matters!
 
 export interface Icache {
 	/**
