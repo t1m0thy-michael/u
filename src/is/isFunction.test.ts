@@ -12,6 +12,12 @@ describe('isFunction()', function () {
 	it('returns TRUE when passed a function', function () {
 		assert.strictEqual(isFunction(function () { }), true, 'Full fat function')
 		assert.strictEqual(isFunction(() => { }), true, 'Arrow function')
+
+		assert.strictEqual(isFunction(async function () { }), true, 'Full fat async function')
+		assert.strictEqual(isFunction(async () => { }), true, 'Async arrow function')
+
+		assert.strictEqual(isFunction(function* () { }), true, 'Generator function')
+		assert.strictEqual(isFunction(async function* () { }), true, 'Async generator function')
 	})
 
 	it('returns FALSE when not passed a function', function () {
