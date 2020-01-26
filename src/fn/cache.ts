@@ -1,6 +1,4 @@
-/* eslint require-atomic-updates: off */
-
-import { isScalar } from '../is/isScalar'
+import { getCacheKey } from './cache_key'
 
 export interface Icache {
 	/**
@@ -18,10 +16,6 @@ export const cache: Icache = (fn) => {
 		[index: string]: any
 	}= {}
 
-	// objects will map to an Id which is then used for resultCache key
-	const objKeyMap = new WeakMap()
-	let objKeyMapId = 0
-
 	// determins if we should return an asyn function or not.
 	let type = toString.call(fn)
 
@@ -29,22 +23,7 @@ export const cache: Icache = (fn) => {
 	if (type.indexOf('Generator') > -1) return fn
 
 	const nufn = (...args: any[]) => {
-		let key = ''
-		for (let i in args) {
-
-			if (isScalar(args[i]) || !args[i]) {
-				key += args[i]
-
-			} else if (objKeyMap.has(args[i])) {
-				key += objKeyMap.get(args[i])
-
-			} else {
-				const nuKey = ++objKeyMapId
-				objKeyMap.set(args[i], objKeyMapId)
-				key += nuKey
-			}
-		}
-
+		const key = getCacheKey(args)
 		if (!(key in resultCache)) resultCache[key] = fn(...args)
 		return resultCache[key]
 	}
