@@ -18,12 +18,11 @@ export const lscache: IlsCache = (fn, id) => {
 		return cache(fn)
 	}
 
-	// determins if we should return an asyn function or not.
-	let type = toString.call(fn)
-
 	// do not lscache generator output!
+	let type = toString.call(fn)
 	if (type.indexOf('Generator') > -1) return fn
 
+	// id is required for ls caching to be benficial between page loads
 	const fnKey = id || getCacheKey([fn])
 	
 	const nufn = (...args: any[]) => {
