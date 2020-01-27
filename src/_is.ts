@@ -14,6 +14,7 @@ export * from './is/isNumberish'
 export * from './is/isObject'
 export * from './is/isRealNaN'
 export * from './is/isScalar'
+export * from './is/isSet'
 export * from './is/isString'
 export * from './is/isType'
 export * from './is/isUndefined'
@@ -34,6 +35,7 @@ import { isNumberish } from './is/isNumberish'
 import { isObject } from './is/isObject'
 import { isRealNaN } from './is/isRealNaN'
 import { isScalar } from './is/isScalar'
+import { isSet } from './is/isSet'
 import { isString } from './is/isString'
 import { isType } from './is/isType'
 import { isUndefined } from './is/isUndefined'
@@ -59,6 +61,7 @@ export const is = {
 	isObject,
 	isRealNaN,
 	isScalar,
+	isSet,
 	isString,
 	isType,
 	isUndefined,
