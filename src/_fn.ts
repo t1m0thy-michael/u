@@ -1,4 +1,5 @@
 export * from './fn/cache'
+export * from './fn/lscache'
 export * from './fn/callOrReturn'
 export * from './fn/curry'
 export * from './fn/maybeCall'
