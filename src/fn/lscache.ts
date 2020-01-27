@@ -11,7 +11,7 @@ export interface IlsCache {
 	}
 }
 
-export const lscache: IlsCache = (fn) => {
+export const lscache: IlsCache = (fn, id) => {
 
 	if (!window || !window.localStorage) {
 		console.warn('lsCache(): localStorage not available. Using cache()')
@@ -24,7 +24,7 @@ export const lscache: IlsCache = (fn) => {
 	// do not lscache generator output!
 	if (type.indexOf('Generator') > -1) return fn
 
-	const fnKey = getCacheKey([fn])
+	const fnKey = id || getCacheKey([fn])
 	
 	const nufn = (...args: any[]) => {
 		const key = `__${fnKey}_${getCacheKey(args)}`
